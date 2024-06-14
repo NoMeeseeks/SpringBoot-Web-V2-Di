@@ -2,7 +2,7 @@ package org.example.springbootwebdi.models.service;
 
 import org.springframework.stereotype.Service;
 
-@Service("miServicioSimple")
+//@Service("miServicioSimple")
 public class MiServicio implements IServicio{
 
     //es una singelton y se crea una sola vez
