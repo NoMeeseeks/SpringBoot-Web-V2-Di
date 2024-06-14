@@ -12,10 +12,29 @@ public class IndexController {
     @Autowired //sirve para injectar un objeto en el contenedor de spring
     private IServicio miServicioService;
 
+    /*
+
+    Por constructor se hace de la siguiente manera pero tambien puedes dejarlo sin la etiqueta Autowired ya que spring por defecto lo enlaza
+
+    @Autowired
+    public IndexController (IServicio miServicioService){
+        this.miServicioService = miServicioService;
+    }
+     */
 
     @GetMapping("/")
     public String index(Model model){
         model.addAttribute("objeto", miServicioService.operacion());
         return "index";
     }
+
+    /*
+
+    Inyeccion de dependencias via metodo
+
+    @Autowired
+    public void setMiServicioService(IServicio miServicioService) {
+        this.miServicioService = miServicioService;
+    }
+     */
 }
