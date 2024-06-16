@@ -1,6 +1,7 @@
 package org.example.springbootwebdi.models.dominio;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -18,6 +19,7 @@ public class Factura {
     private Cliente cliente;
 
     @Autowired
+    @Qualifier("itemsFacturaOficina")
     private List<ItemsFactura> lsItems;
 
     public String getIdFactura() {
