@@ -1,5 +1,7 @@
 package org.example.springbootwebdi.models.dominio;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -21,6 +23,17 @@ public class Factura {
     @Autowired
     @Qualifier("itemsFacturaOficina")
     private List<ItemsFactura> lsItems;
+
+    @PostConstruct
+    public void inicializar(){
+        cliente.setNombre(cliente.getNombre().concat(" ").concat("ramirez"));
+
+    }
+
+    @PreDestroy
+    public void destruir(){
+        System.out.println("Factura destruida");
+    }
 
     public String getIdFactura() {
         return idFactura;
